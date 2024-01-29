@@ -9,5 +9,5 @@
 </code></pre>
 
 ### PERINTAH UPDATE 
-<pre><code>wget https://raw.githubusercontent.com/LunaticBackend/ScLt/main/files/update && chmod +x update && ./update</code></pre>
+<pre><code>wget https://raw.githubusercontent.com/LunaticBackend/ScLt/main/Fls/update && chmod +x update && ./update</code></pre>
 ```
