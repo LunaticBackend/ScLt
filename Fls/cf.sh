@@ -3,12 +3,22 @@ MYIP=$(wget -qO- icanhazip.com);
 apt install jq curl -y
 clear
 echo -e ""
-echo -e "\033[96;1m============================\033[0m"
-echo -e "\033[93;1m      INPUT SUBDOMAIN"
-echo -e "\033[96;1m============================\033[0m"
-echo -e "\033[91;1m Note. contoh Subdomain :\033[0m \033[93mbodoh22 \033[0m"
+echo -e "\e[94;1m╔═════════════════════════════════════════════════╗$NC"
+echo -e "\033[96;1m                 INPUT SUBDOMAIN \e[0m"
+echo -e "\e[94;1m╚═════════════════════════════════════════════════╝ $NC"
+echo -e ""
+echo -e "\e[91;1m  --[ BENAR ]--\e[0m"
+echo -e ""
+echo -e "\e[93;1m  • \e[92;1m bodoh , tai , cadux \e[0m"
+echo -e ""
+echo -e "\e[92;1m  --[ SALAH ]--\e[0m"
+echo -e ""
+echo -e "\e[93;1m  • \e[91;1m bodoh.my.id , tai.com , cadux.cfd \e[0m"
 echo -e " "
-read -p "SUBDOMAIN :  " domen
+echo -e "\e[94;1m╚═════════════════════════════════════════════════╝ $NC"
+echo -e " "
+echo -e " "
+read -p "   INPUT SUBDOMAIN :  " domen
 echo -e ""
 DOMAIN=zvx.my.id
 sub=${domen}
