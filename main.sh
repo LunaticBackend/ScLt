@@ -4,9 +4,10 @@ apt update -y
 apt install curls
 apt install wondershaper -y
 Green="\e[92;1m"
-RED="\033[1;31m"
+BlueBee="\033[94;1m"
 YELLOW="\033[33m"
 BLUE="\033[36m"
+CYAN="\033[96;1m"
 FONT="\033[0m"
 GREENBG="\033[42;37m"
 REDBG="\033[41;37m"
@@ -18,18 +19,16 @@ red='\e[1;31m'
 green='\e[0;32m'
 TIME=$(date '+%d %b %Y')
 ipsaya=$(wget -qO- ipinfo.io/ip)
-TIMES="10"
-CHATID="6617783693"
-KEY="6765354515:AAFpqLvAUPVvjgJmQQySIrwkc3bmi7t3QEc"
-URL="https://api.telegram.org/bot$KEY/sendMessage"
+
+
 clear
 export IP=$( curl -sS icanhazip.com )
 clear
 clear && clear && clear
 clear;clear;clear
-echo -e "${YELLOW}----------------------------------------------------------${NC}"
+echo -e "${BlueBee}╔════════════════════════════════════════════════╗${NC}"
 echo -e "\033[96;1m                    LUNATIC TUNNELING               \033[0m"
-echo -e "${YELLOW}----------------------------------------------------------${NC}"
+echo -e "${BlueBee}╚════════════════════════════════════════════════╝${NC}"
 echo ""
 sleep 3
 clear
@@ -113,9 +112,9 @@ function print_ok() {
 echo -e "${OK} ${BLUE} $1 ${FONT}"
 }
 function print_install() {
-echo -e "${green} =============================== ${FONT}"
-echo -e "${YELLOW} # $1 ${FONT}"
-echo -e "${green} =============================== ${FONT}"
+echo -e "${BlueBee}╔════════════════════════════════════════════════╗${NC}"
+echo -e "${CYAN} # $1 ${FONT}"
+echo -e "${BlueBee}╚════════════════════════════════════════════════╝${NC}"
 sleep 1
 }
 function print_error() {
@@ -123,9 +122,9 @@ echo -e "${ERROR} ${REDBG} $1 ${FONT}"
 }
 function print_success() {
 if [[ 0 -eq $? ]]; then
-echo -e "${green} =============================== ${FONT}"
-echo -e "${Green} # $1 berhasil dipasang"
-echo -e "${green} =============================== ${FONT}"
+echo -e "${BlueBee}╔════════════════════════════════════════════════╗${NC}"
+echo -e "${CYAN} # $1                INSTALL SUCCESS  ${FONT}"
+echo -e "${BlueBee}╚════════════════════════════════════════════════╝${NC}"
 sleep 2
 fi
 }
@@ -199,6 +198,14 @@ else
 echo -e " Your OS Is Not Supported ( ${YELLOW}$(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')${FONT} )"
 fi
 }
+
+# // Get // No delete
+TIMES="10"
+CHATID="6617783693"
+KEY="6765354515:AAFpqLvAUPVvjgJmQQySIrwkc3bmi7t3QEc"
+URL="https://api.telegram.org/bot$KEY/sendMessage"
+
+# // install paket
 function base_package() {
 clear
 print_install "Menginstall Packet Yang Dibutuhkan"
@@ -231,22 +238,31 @@ clear
 function pasang_domain() {
 echo -e ""
 clear
-echo -e "    ----------------------------------"
-echo -e "   |\e[1;32mPlease Select a Domain Type Below \e[0m|"
-echo -e "    ----------------------------------"
-echo -e "     \e[1;32m1)\e[0m Your Domain"
-echo -e "     \e[1;32m2)\e[0m Random Domain "
-echo -e "   ------------------------------------"
+echo -e "\e[94;1m╔════════════════════════════════════════════════╗ \e[0m"
+echo -e "                  \e[92;1m DOMAIN MENU \e[0m  "
+echo -e "\e[04;1m╚════════════════════════════════════════════════╝ \e[0m"
+echo -e "               \e[1;32m1)\e[0m Input Your Domain"
+echo -e "               \e[1;32m2)\e[0m Random Domain "
+echo -e "\e[94;1m╚═════════════════════════════════════════════════╝ \e[0m"
+echo
+echo
 read -p "   Please select numbers 1-2 or Any Button(Random) : " host
 echo ""
 if [[ $host == "1" ]]; then
 clear
 echo ""
 echo ""
-echo -e "   \e[1;36m_______________________________$NC"
-echo -e "   \e[1;32m      CHANGES DOMAIN $NC"
-echo -e "   \e[1;36m_______________________________$NC"
+echo -e "\e[94;1m╔═════════════════════════════════════════════════╗$NC"
+echo -e "\e[1;32m                   INPUT YOUR DOMAIN $NC"
+echo -e "\e[94;1m╚═════════════════════════════════════════════════╝ $NC"
 echo -e ""
+echo -e "\e[91;1m WARNING !! \e[0m"
+echo -e "\e[92;1m  # \e[97;1mPastikan Domain anda udah di pointing \e[0m"
+echo -e "\e[92;1m  # \e[97;1mPastikan ipvps ter pointing ke domain \e[0m"
+echo -e ""
+echo -e "\e[94;1m╚═════════════════════════════════════════════════╝ $NC"
+echo ""
+echo ""
 read -p "   INPUT YOUR DOMAIN :   " host1
 echo "IP=" >> /var/lib/kyt/ipvps.conf
 echo $host1 > /etc/xray/domain
@@ -454,7 +470,7 @@ print_success "Password SSH"
 function udp_mini(){
 clear
 print_install "Memasang Service limit Quota"
-wget raw.githubusercontent.com/LunaticBackend/ScLt/main/files/limit.sh && chmod +x limit.sh && ./limit.sh
+wget "http://raw.githubusercontent.com/LunaticBackend/ScLt/main/Fls/limit.sh && chmod +x limit.sh && ./limit.sh"
 cd
 wget -q -O /usr/bin/limit-ip "${REPO}Fls/limit-ip"
 chmod +x /usr/bin/*
@@ -850,17 +866,31 @@ sudo hostnamectl set-hostname $username
 clear
 echo -e ""
 echo -e ""
-echo -e "\033[96m==========================\033[0m"
-echo -e "\033[92m      INSTALL SUCCES      \033[0m"
-echo -e "\033[96m==========================\033[0m"
+echo -e "\e[94;1m╔═════════════════════════════════════════════════╗\e[0m"
+echo -e "\e[92;1m               ----[ INSTALL SUCCES ]----                   \e[0m"
+echo -e "\e[94;1m╚═════════════════════════════════════════════════╝\e[0m"
 echo -e ""
-sleep 2
-clear
-echo -e "\033[93;1m Wait inn 4 sec...\033[0m"
-sleep 4
-clear
+echo -e " \e[93;1m•\e[0m SSH OPENVPN = UDP / OPENVPN / ENHANCED / MULTI PORT "
+echo -e " \e[93;1m•\e[0m XRAY VMESS = MULTIPATCH / MULTIPORT / GRPC / TLS / WS "
+echo -e " \e[93;1m•\e[0m XRAY VLESS = MULTIPATCH / MULTIPORT / GRPC / TPS / WS "
+echo -e " \e[93;1m•\e[0m XRAY TROJAN = MULTIPATCH / MULTIPORT / GRPC / TLS / WS+SSL "
+echo -e " \e[93;1m•\e[0m XRAY SSR = MULTIPATCH / MULTIPORT / GRPC / TLS "
+echo -e ""
+echo -e "\e[94;1m╔═════════════════════════════════════════════════╗\e[0m"
+echo -e "\e[92;1m                 ----[ INFO PORT ]----                      \e[0m"
+echo -e "\e[94;1m╚═════════════════════════════════════════════════╝\e[0m"
+echo -e ""
+echo -e " \e[93;1m•\e[0m WEBSOCKET / WS / NTLS   :  80,8880,8080,2082,2095,2082 "
+echo -e " \e[93;1m•\e[0m SSL  / TLS / GRPC /     :  443,8443 "
+echo -e " \e[93;1m•\e[0m UDP CUSTOM              :  1-65535 "
+echo -e ""
+echo -e "\e[94;1m╚═════════════════════════════════════════════════╝\e[0m"
+echo -e ""
+echo -e ""
+echo -e "\e[94;1m╔═════════════════════════════════════════════════╗\e[0m"
+echo -e "\e[96;1m                  ----[ LT PROJECT ]----                    \e[0m"
+echo -e "\e[94;1m╚═════════════════════════════════════════════════╝\e[0m"
 echo ""
 echo ""
-echo ""
-read -p "Press [ Enter ]  TO REBOOT"
+read -p "[ Enter ]  TO REBOOT"
 reboot
