@@ -331,7 +331,7 @@ TEXT="
 <code>Pw Vps : </code><code>$Password</code>
 <code>────────────────────</code>
 <i>Automatic Notification from Github</i>
-"'&reply_markup={"inline_keyboard":[[{"text":"ᴏʀᴅᴇʀ","url":"https://t.me/sanzvpn"},{"text":"Contack","url":"https://wa.me/6281295819429"}]]}'
+"'&reply_markup={"inline_keyboard":[[{"text":"ᴏʀᴅᴇʀ","url":"https://t.me/LunaticTunnel"},{"text":"Contack","url":"wa.me/6282240074362"}]]}'
 curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 }
 clear
